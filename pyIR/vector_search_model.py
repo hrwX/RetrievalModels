@@ -1,3 +1,0 @@
-class VectorSearchModel:
-	pass
-

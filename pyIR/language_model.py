@@ -1,3 +1,0 @@
-class LanguageModel(Base):
-	pass
-
