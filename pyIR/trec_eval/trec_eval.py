@@ -1,7 +1,6 @@
 # Copyright (c) 2022, Himanshu Warekar
 # MIT License. See license.txt
 
-import json
 
 from pyIR.best_match_25 import BestMatch25
 from pyIR.jelinek_mercer_language_model import JelinekMercerLanguageModel
@@ -13,41 +12,31 @@ def evaluate(path: str) -> None:
 	importer = Importer(path=path)
 	corpus_dict, queries_dict = importer.get()
 
-	with open(f"{path}/corpus.json") as f:
-		corpus_dict = json.load(f)
+	top_n = len(corpus_dict)
 
-	with open(f"{path}/query.json") as f:
-		queries_dict = json.load(f)
-
-	corpus_keys = list(corpus_dict.keys())
-	corpus_values = list(corpus_dict.values())
-
-	best_match_25 = BestMatch25(corpus=corpus_values)
-	vector_space_model = VectorSpaceModel(corpus=corpus_values)
-	language_model = JelinekMercerLanguageModel(corpus=corpus_values)
+	best_match_25 = BestMatch25(corpus=corpus_dict)
+	vector_space_model = VectorSpaceModel(corpus=corpus_dict)
+	language_model = JelinekMercerLanguageModel(corpus=corpus_dict)
 
 	best_match_25_scores = []
 	vector_space_model_scores = []
 	language_model_scores = []
 
-	corpus_length = len(corpus_dict)
-
 	for idx, (query_id, query) in enumerate(queries_dict.items()):
-		best_match_25_score = best_match_25.search(query)
-		vector_space_model_score = vector_space_model.search(query)
-		language_model_score = language_model.search(query)
+		best_match_25_score = best_match_25.search(query=query, top_n=top_n)
+		vector_space_model_score = vector_space_model.search(query=query, top_n=top_n)
+		language_model_score = language_model.search(query=query, top_n=top_n)
 
-		for idx in range(corpus_length):
+		for idx in range(top_n):
 			best_match_25_scores.append(
-				f"{query_id} Q0 {corpus_keys[idx]} {idx} {best_match_25_score[idx]} nop"
+				f"{query_id} Q0 {best_match_25_score[idx][0]} {idx} {best_match_25_score[idx][1]} nop"
 			)
 			vector_space_model_scores.append(
-				f"{query_id} Q0 {corpus_keys[idx]} {idx} {vector_space_model_score[idx]} nop"
+				f"{query_id} Q0 {vector_space_model_score[idx][0]} {idx} {vector_space_model_score[idx][1]} nop"
 			)
 			language_model_scores.append(
-				f"{query_id} Q0 {corpus_keys[idx]} {idx} {language_model_score[idx]} nop"
+				f"{query_id} Q0 {language_model_score[idx][0]} {idx} {language_model_score[idx][1]} nop"
 			)
-
 
 	output_map = {
 		"best_match_25.txt": best_match_25_scores,

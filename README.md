@@ -13,3 +13,6 @@ If you want to be sure you're getting the newest version, you can install it dir
 ```bash
 pip install git+ssh://git@github.com/hrwx/pyIR.git
 ```
+
+#### TREC
+The algorithms were implemented primarily to run evaluations using the TREC Cranfield collection. The TREC evaluation can be run from the `evaluate.py` file.
