@@ -9,9 +9,9 @@ The algorithms that have been implemented are:
 - Unigram Language Model using Jelinek Mercer Smoothing
 
 ## Installation
-If you want to be sure you're getting the newest version, you can install it directly from github with
-```bash
-pip install git+ssh://git@github.com/hrwx/pyIR.git
+If you want to be sure you're getting the newest version, you can install it directly from github
+```
+pip install git+ssh://git@github.com/hrwx/RetrievalModels.git
 ```
 
 #### TREC

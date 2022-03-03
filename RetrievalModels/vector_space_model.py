@@ -1,13 +1,13 @@
-# Copyright (c) 2022, Himanshu Warekar
+# Copyright (c) 2022, hrwX
 # MIT License. See license.txt
 
 from collections import Counter
 from math import log, sqrt
 from typing import Dict, Hashable, List
 
-from pyIR.utils.cache import Cache
-from pyIR.utils.collections import TweakedCounter
-from pyIR.utils.inverted_index import InvertedIndex
+from RetrievalModels.utils.cache import Cache
+from RetrievalModels.utils.collections import TweakedCounter
+from RetrievalModels.utils.inverted_index import InvertedIndex
 
 
 class VectorSpaceModel:

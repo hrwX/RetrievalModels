@@ -1,11 +1,11 @@
-# Copyright (c) 2022, Himanshu Warekar
+# Copyright (c) 2022, hrwX
 # MIT License. See license.txt
 
 
-from pyIR.best_match_25 import BestMatch25
-from pyIR.jelinek_mercer_language_model import JelinekMercerLanguageModel
-from pyIR.trec_eval.importer import Importer
-from pyIR.vector_space_model import VectorSpaceModel
+from RetrievalModels.best_match_25 import BestMatch25
+from RetrievalModels.jelinek_mercer_language_model import JelinekMercerLanguageModel
+from RetrievalModels.trec_eval.importer import Importer
+from RetrievalModels.vector_space_model import VectorSpaceModel
 
 
 def evaluate(path: str) -> None:

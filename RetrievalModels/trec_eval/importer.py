@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Himanshu Warekar
+# Copyright (c) 2022, hrwX
 # MIT License. See license.txt
 
 import os
@@ -55,3 +55,4 @@ class Importer:
 			for word in corpus.split()
 			if word not in self.stopwords
 		]
+

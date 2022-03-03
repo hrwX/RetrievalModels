@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Himanshu Warekar
+# Copyright (c) 2022, hrwX
 # MIT License. See license.txt
 
 from typing import Any, Iterable, Optional
@@ -11,3 +11,4 @@ class InvertedIndex(dict):
 				self[__iter].append(__value)
 			except KeyError:
 				self[__iter] = [__value]
+
