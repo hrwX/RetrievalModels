@@ -1,4 +1,4 @@
-### pyIR: Collection of Information Retrieval algorithms
+### RetrievalModels: Collection of Information Retrieval algorithms
 [![GitHub version](https://badge.fury.io/gh/hrwx%2FpyIR.svg)](https://badge.fury.io/gh/hrwx%2FpyIR)
 
 A collection of algorithms for querying a set of documents and returning the ones most relevant to the query.
